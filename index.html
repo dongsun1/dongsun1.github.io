@@ -336,7 +336,7 @@
             <a href="https://marketingmall.co.kr">marketingmall.co.kr</a></div>
           <p>광고주가 대행사 없이 상품 선택부터 결제·충전·정산까지 처리하는 셀프서브 플랫폼.</p>
           <ul>
-            <li>결제창 통과와 충전 완료를 구분 — 서버 승인까지 끝나야 포인트가 반영된다</li>
+            <li>결제창은 통과했는데 서버 승인이 실패하는 일이 있었습니다. 승인 응답까지 끝나야 포인트가 반영되도록 하고, 실패하면 사유를 보여준 뒤 충전 화면으로 되돌립니다</li>
             <li>증빙 발행 수수료로 충전액과 결제액이 달라져, 증빙을 고르는 시점에 최종 금액을 재계산</li>
             <li>구독 상태를 <code>active</code> / <code>grace</code> / <code>expired</code> / <code>suspended</code> / <code>none</code>으로 나누고, 만료 시 유예 기간을 안내</li>
             <li>같은 금액 계산이 한 파일에 네 곳 흩어져 있어 — 한 곳만 고치면 화면 금액과 청구가 어긋납니다 — 한 함수로 모으고 Vitest + RTL 테스트 <span class="num">39</span>개로 고정</li>
