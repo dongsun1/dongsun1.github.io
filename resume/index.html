@@ -170,7 +170,9 @@
   }
   .tech dd { margin: 0; }
 
-  @media (max-width: 760px) {
+  /* screen 한정 — 인쇄 시 A4 콘텐츠 폭이 약 707px 이라 이 분기가 걸려
+     좌우 2단이 1단으로 접혔다 */
+  @media screen and (max-width: 760px) {
     .page { padding: 52px 22px 80px; }
     .grid { grid-template-columns: 1fr; gap: 10px; }
     .lab, .col { grid-column: auto; }
@@ -189,9 +191,7 @@
        화면 px 을 pt 로 환산: 15px = 11.25pt, 14.5px = 10.9pt */
     body { background: #fff; color: #000; font-size: 11.25pt; line-height: 1.6; }
     .page { padding: 0; max-width: none; }
-    .grid { gap: 14px; }
-    .lab { grid-column: span 2; }
-    .col { grid-column: span 10; }
+    .grid { gap: 16px; }
     p, li, .tech, .unit p, .case p { font-size: 10.9pt; }
     .stack, .tag, .tag em, .yr, .tech dt, .out .k, .api h4 em { font-size: 9pt; }
     .who { font-size: 12pt; }
