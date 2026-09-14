@@ -182,14 +182,50 @@
   }
 
   @media print {
-    @page { margin: 14mm 14mm 16mm; }
-    body { background: #fff; color: #000; font-size: 10pt; line-height: 1.6; }
+    @page { margin: 10mm 11mm 10mm; }
+    body { background: #fff; color: #000; font-size: 8.4pt; line-height: 1.46; }
     .page { padding: 0; max-width: none; }
-    section { margin-top: 26px; }
-    .case, .unit, .api, .out { page-break-inside: avoid; }
-    h1, h2, h3, h4 { page-break-after: avoid; }
+
+    /* 라벨 칸을 좁혀 본문에 너비를 넘긴다. 화면에서는 3단이지만 인쇄에서
+       라벨은 한 단어뿐이라 3단을 쓰면 25% 가 빈 채로 남는다 */
+    .grid { gap: 12px; }
+    .lab { grid-column: span 2; }
+    .col { grid-column: span 10; }
+
+    /* 화면용 여백은 인쇄에서 전부 과하다 */
+    section { margin-top: 13px; }
+    hr { margin: 13px 0; }
+    hr.hair { margin: 12px 0; }
+    .bar { height: 3px; margin-top: 10px; }
+    .unit { margin-top: 12px; }
+    .api { margin-top: 12px; padding-left: 12px; }
+    .case { margin-bottom: 14px; }
+    p { margin-bottom: 8px; }
+    ul { margin-top: 7px; }
+    li { margin-bottom: 3px; max-width: none; }
+    p { max-width: none; }
+    .out { margin: 10px 0; padding: 8px 0; gap: 10px 26px; }
+
+    /* 화면 CSS 가 li·p 를 px 로 못박아 둬서, body 의 pt 지정만으로는 본문이
+       줄지 않는다. 인쇄에서는 본문 크기를 직접 덮는다 */
+    p, li, .tech, .unit p, .case p { font-size: 8.6pt; }
+    .stack, .tag, .tag em, .yr, .tech dt, .out .k, .api h4 em { font-size: 7.2pt; }
+    .who { font-size: 9.5pt; }
+    .reach { font-size: 8pt; }
+    .api h4 { font-size: 9.5pt; }
+
+    .wordmark { font-size: 31pt; }
+    .open { font-size: 12pt; margin-bottom: 10px; }
+    .co { font-size: 15pt; }
+    .unit h3 { font-size: 10.5pt; }
+    .case h3 { font-size: 12pt; margin-bottom: 8px; }
+    .out .v { font-size: 14pt; color: #000; }
+    .out .was { font-size: 10pt; }
+
+    /* 블록 단위로만 붙잡는다. .unit 까지 묶으면 통째로 밀리며 빈 면이 생긴다 */
+    .api, .out { break-inside: avoid; }
+    h1, h2, h3, h4 { break-after: avoid; }
     a { border-bottom: none; }
-    .out .v { color: #000; }
   }
 </style>
 </head>
@@ -254,7 +290,8 @@
           <p>리워드 미션 사용자 앱. Android <span class="num">5만+</span> 설치 · 평점
             <span class="num">4.3</span>, iOS 평점 <span class="num">4.6</span>.</p>
           <ul>
-            <li>유튜브·네이버·쿠팡 등 20여 개 서비스의 WebView에서 미션 완료 검증 스크립트 개발</li>
+            <li>유튜브·네이버·쿠팡 등 20여 개 서비스의 WebView에 스크립트를 주입해 미션 완료를 검증 (미션 화면 <span class="num">34</span>개)</li>
+            <li>외부 사이트 class 가 배포마다 난독화돼, class 대신 <code>aria</code> 속성으로 요소를 찾고 클릭이 아니라 상태 변화로 완료를 판정</li>
             <li>설치 여부에 따라 앱/웹으로 분기하는 실행 방식을 URL Builder로 추상화</li>
             <li>CodePush 서버를 직접 구성해 스토어 심사 없이 배포·롤백</li>
             <li>PASS 본인인증 개인정보는 앱이 아닌 서버가 조회하고, ATT 동의에 따라 광고 ID 수집을 제어</li>
@@ -269,7 +306,7 @@
           <ul>
             <li>광고사마다 미션 로직이 바뀌어 요청마다 지면 코드를 고쳐 배포하던 문제를 발견</li>
             <li>미션 로직을 설정 기반으로 분리해, 이후 모든 미션 유형을 코드 배포 없이 어드민에서 추가·변경</li>
-            <li>상세보기 → 복사 → 시작 → 제출 → 완료 이벤트로 매체·카테고리별 전환 퍼널 집계</li>
+            <li>상세보기 → 복사 → 시작 → 제출 → 완료 이벤트로 매체·카테고리별 전환 퍼널을 집계. 아래 전환율 급감도 이 지표에서 발견했습니다</li>
             <li>Vitest + RTL 테스트 <span class="num">49</span>개 — 운영에서 겪은 검색어 인코딩, 지도 앱 미설치, 인덱스 범위 문제를 고정</li>
           </ul>
         </div>
