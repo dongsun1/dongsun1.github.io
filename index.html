@@ -184,12 +184,12 @@
   }
 
   @media print {
-    @page { margin: 11mm 12mm 11mm; }
+    @page { margin: 9mm 11mm 9mm; }
 
     /* 글자 크기는 화면과 같게 둔다. 종이에 맞추는 것은 여백으로만 한다 —
        글자를 줄이면 웹에서 본 것과 다른 문서가 된다.
        화면 px 을 pt 로 환산: 15px = 11.25pt, 14.5px = 10.9pt */
-    body { background: #fff; color: #000; font-size: 11.25pt; line-height: 1.6; }
+    body { background: #fff; color: #000; font-size: 11.25pt; line-height: 1.56; }
     .page { padding: 0; max-width: none; }
     .grid { gap: 16px; }
     p, li, .tech, .unit p, .case p { font-size: 10.9pt; }
@@ -206,17 +206,21 @@
     .out .was { font-size: 12pt; }
 
     /* 여백만 조인다 */
-    section { margin-top: 13px; }
-    hr { margin: 13px 0; }
-    hr.hair { margin: 10px 0; }
-    .bar { margin-top: 11px; }
-    .unit { margin-top: 12px; }
-    .api { margin-top: 12px; }
-    .case { margin-bottom: 13px; }
-    p { margin-bottom: 7px; max-width: none; }
-    ul { margin-top: 7px; }
-    li { margin-bottom: 3px; max-width: none; }
-    .out { margin: 9px 0; padding: 7px 0; gap: 9px 26px; }
+    section { margin-top: 10px; }
+    hr { margin: 10px 0; }
+    hr.hair { margin: 8px 0; }
+    .bar { margin-top: 9px; }
+    .unit { margin-top: 10px; }
+    .api { margin-top: 10px; }
+    .case { margin-bottom: 10px; }
+    p { margin-bottom: 6px; max-width: none; }
+    ul { margin-top: 6px; }
+    li { margin-bottom: 2px; max-width: none; }
+    .out { margin: 7px 0; padding: 6px 0; gap: 7px 24px; }
+    /* 라벨과 값을 한 줄로 붙여 높이를 절반으로 줄인다 */
+    .tech { display: flex; gap: 12px; margin-bottom: 5px; }
+    .tech dt { flex: 0 0 68px; margin-bottom: 0; padding-top: 1px; }
+    .tech dd { flex: 1; }
 
     /* li::before 가 CSS 도형이라 PDF 텍스트에 글머리 기호가 안 남는다.
        ATS 가 항목 경계를 잡도록 인쇄에서는 실제 문자를 쓴다 */
@@ -294,10 +298,8 @@
             <li>네이버·유튜브·쿠팡 등 우리가 통제할 수 없는 외부 사이트에서 도는 스크립트를 <span class="num">8</span>개월 동안 <span class="num">7</span>개 서비스·<span class="num">41</span>개 미션 유형까지 넓혔습니다</li>
             <li>주입한 코드의 예외가 호스트 페이지로 번지지 않도록 격리하고, 실패도 네이티브 브릿지로 앱에 전달</li>
             <li>외부 사이트 class 가 배포마다 난독화돼, class 대신 <code>aria</code> 속성으로 요소를 찾고 클릭이 아니라 상태 변화로 완료를 판정</li>
-            <li>설치 여부에 따라 앱/웹으로 분기하는 실행 방식을 URL Builder로 추상화</li>
             <li>CodePush 서버를 직접 구성해, 스토어 심사를 기다리지 않고 당일 배포하고 문제가 생기면 되돌립니다</li>
-            <li>PASS 본인인증은 앱이 <code>imp_uid</code>만 넘기고 이름·전화번호는 서버가 조회 — 개인정보가 앱과 로그를 거치지 않습니다</li>
-            <li>ATT 를 거부해도 가입이 막히지 않도록 광고 ID 를 <code>null</code>로 보내고 기기 식별자를 따로 둬, 매체사 정산은 유지</li>
+            <li>PASS 본인인증은 앱이 <code>imp_uid</code>만 넘겨 개인정보가 앱과 로그를 거치지 않고, ATT 를 거부해도 기기 식별자로 매체사 정산이 유지됩니다</li>
             <li>Jest 테스트 <span class="num">72</span>개 — 미션 URL 판정, 유튜브 ID 추출, 가이드 HTML 정제. 마지막 변환기는 테스트와 함께 공개했습니다</li>
           </ul>
         </div>
@@ -305,8 +307,7 @@
         <div class="unit">
           <h3>오퍼월 — 리워드 광고 지면</h3>
           <div class="stack">React · TypeScript · SWR · Zustand · Vitest · React Testing Library</div>
-          <p>여러 회사 앱에 WebView 로 실려 나가는 광고 지면. 호스트 앱과는 네이티브 브릿지로
-            통신합니다.</p>
+          <p>여러 회사 앱에 WebView 로 실려 나가는 광고 지면.</p>
           <ul>
             <li>광고사마다 미션 로직이 바뀌어 요청마다 지면 코드를 고쳐 배포하던 문제를 발견</li>
             <li>미션 로직을 설정 기반으로 분리해, 이후 요청된 모든 미션 유형을 코드 배포 없이 어드민에서 추가·변경</li>
@@ -320,7 +321,6 @@
           <div class="stack">React · TypeScript · Next.js · Ant Design</div>
           <p>캠페인·참여자·정산·미션 검수를 다루는 사내 운영 도구. <b>2년 5개월간 78개 화면</b>을 만들었습니다.</p>
           <ul>
-            <li>정산 데이터를 내보낼 때 화면에 적용한 필터가 그대로 반영되도록 구현</li>
             <li>하루 종일 같은 화면을 보는 운영자가 사용자라, 상태를 배지와 색으로 스캔할 수 있게 구성</li>
             <li>마케팅몰과 같은 API 를 쓰지만, 광고주와 운영자는 필요한 정보가 달라 밀도를 다르게 설계</li>
           </ul>
@@ -332,9 +332,9 @@
             <a href="https://marketingmall.co.kr">marketingmall.co.kr</a></div>
           <p>광고주가 대행사 없이 상품 선택부터 결제·충전·정산까지 처리하는 셀프서브 플랫폼.</p>
           <ul>
-            <li>결제창은 통과했는데 서버 승인이 실패하는 일이 있었습니다. 승인 응답까지 끝나야 포인트가 반영되도록 하고, 실패하면 사유를 보여준 뒤 충전 화면으로 되돌립니다</li>
+            <li>결제창은 통과했는데 서버 승인이 실패하는 일이 있었습니다. 승인 응답까지 끝나야 포인트가 반영되도록 바꿨습니다</li>
             <li>세금계산서·현금영수증을 발행하면 수수료가 붙는 구조라 충전액과 결제액이 달라집니다. 증빙을 고르는 시점에 최종 금액을 다시 계산해 보여줍니다</li>
-            <li>구독 상태를 <code>active</code> / <code>grace</code> / <code>expired</code> / <code>suspended</code> / <code>none</code>으로 구분 — 기간 만료와 운영 정지는 복구 방법이 달라서입니다. 만료 뒤 <span class="num">30</span>일은 데이터를 그대로 두고 복구 일자를 안내합니다</li>
+            <li>구독 상태를 <code>active</code> / <code>grace</code> / <code>expired</code> / <code>suspended</code> / <code>none</code>으로 구분 — 기간 만료와 운영 정지는 복구 방법이 다릅니다. 만료 뒤 <span class="num">30</span>일은 데이터를 그대로 둡니다</li>
             <li>같은 금액 계산이 한 파일에 네 곳 흩어져 있어 — 한 곳만 고치면 화면 금액과 청구가 어긋납니다 — 한 함수로 모으고 Vitest + RTL 테스트 <span class="num">39</span>개로 고정</li>
           </ul>
         </div>
@@ -346,19 +346,9 @@
             <h4>버즈빌 <em>매체사가 우리 API를 호출</em></h4>
             <p>외부 매체사가 우리 캠페인을 조회하고 참여 결과를 전달하는 API 를 설계·운영.</p>
             <ul>
-              <li>캠페인 목록·참여 결과 API 스펙을 직접 정의하고, 외부 개발자가 쓰는 만큼 하위호환을 챙김</li>
               <li>평균 <span class="num">1,000 RPS</span> · 피크 <span class="num">1,900 RPS</span> — 일 <span class="num">9,000만 건</span>, 7주 누적 <span class="num">44억 건</span> 처리</li>
               <li>중복 요청 제거·큐·캐시로 평균 응답 <span class="num">160ms → 9ms</span></li>
               <li>잔여 수량 계산 방식을 바꿔 동시 참여 경합 감소</li>
-            </ul>
-          </div>
-
-          <div class="api">
-            <h4>퍼플페퍼 <em>우리가 매체사 API를 호출</em></h4>
-            <p>상대 요구사항에 맞춰 우리 캠페인을 전달하는 연동 구조를 설계.</p>
-            <ul>
-                <li>우리 상태와 상대의 전송 상태를 주기적으로 해시 비교해 중복 등록·누락 방지</li>
-              <li>한 매체로 파일럿 후, 연동을 지우지 않고 대상에서 빼 롤백 가능하게 구성</li>
             </ul>
           </div>
         </div>
@@ -367,10 +357,7 @@
           <h3>배포 파이프라인</h3>
           <div class="stack">GitHub Actions · AWS CodeDeploy · S3 · PM2 · Amplify</div>
           <ul>
-            <li>main 에 push 하면 운영·테스트 서버에 동시 배포됩니다. 빌드는 한 번만 하고 산출물을 양쪽이 나눠 씁니다</li>
-            <li>CodeDeploy 검증 훅이 <code>/health</code> 를 10초 간격으로 최대 2분간 확인하고, 응답이 없으면 배포를 실패로 끝냅니다</li>
             <li>Aurora 가 private VPC 안에 있어 러너에서 마이그레이션을 돌릴 수 없습니다. 서버 쪽 배포 훅으로 옮겼습니다</li>
-            <li>PM2 클러스터 <span class="num">2</span>인스턴스를 reload 해 처리 중인 요청을 끊지 않고 교체합니다</li>
           </ul>
         </div>
       </div>
@@ -388,11 +375,8 @@
         <div class="unit" style="margin-top: 22px;">
           <h3>스마트시티 IoT 관제 플랫폼</h3>
           <div class="stack">React · TypeScript · Zustand · React Query</div>
-          <ul>
-            <li>센서 스트림이 끊기거나 지연될 때 값이 빈 칸으로 깜빡이지 않도록 상태 관리</li>
-            <li>여러 개발자가 함께 쓰는 공용 컴포넌트 라이브러리를 구축해 중복 코드를 줄였습니다</li>
-            <li>이미지 최적화와 코드 스플리팅으로 Lighthouse <span class="num">30 → 90</span></li>
-          </ul>
+          <p>스마트 횡단보도·스마트폴 등 IoT 장비의 실시간 관제 화면을 개발했습니다. 센서 스트림이
+            끊기거나 지연될 때 값이 빈 칸으로 깜빡이지 않도록 상태를 관리했습니다.</p>
         </div>
       </div>
     </div>
@@ -436,8 +420,7 @@
           </div>
           <p><b>장애 전 12ms보다도 빨라졌습니다.</b> 중복 요청을 없애면서 원래 매번 하던 DB 조회까지
             줄었기 때문입니다.</p>
-          <p>같은 보호 패턴을 외부 파트너 조회 API에도 적용했고, 배포 검증 기준에 API 응답 시간과
-            connection 사용량을 추가했습니다.</p>
+          <p>배포 검증 기준에 API 응답 시간과 connection 사용량을 추가했습니다.</p>
         </article>
 
         <article class="case">
@@ -454,18 +437,16 @@
           <div class="out">
             <div><div class="k">서버 HTML 본문</div><div class="v"><span class="was">0자 →</span> 8,391자</div></div>
             <div><div class="k">모바일 TBT</div><div class="v"><span class="was">19.4초 →</span> 40ms</div></div>
-            <div><div class="k">Desktop 성능</div><div class="v"><span class="was">57 →</span> 96</div></div>
             <div><div class="k">FAQ LCP</div><div class="v"><span class="was">13.5초 →</span> 2초</div></div>
           </div>
         </article>
 
         <article class="case">
           <h3>Lighthouse 점수를 올릴 수 있었지만 고치지 않았습니다</h3>
-          <p>Lighthouse에서 크롤러가 따라갈 수 없는 링크 때문에 점수가 낮아지는 문제가 있었습니다.</p>
-          <p>링크를 수정하면 점수는 오르지만, <b>해당 목록의 두 번째 페이지가 첫 번째 페이지와 완전히
-            동일한 HTML</b>이어서 검색 엔진 입장에서는 같은 내용의 URL이 하나 더 생기게 됩니다.</p>
-          <p><b>점수를 높이기 위해 수정하는 대신 검색 품질을 기준으로 판단해 그대로 두기로
-            결정</b>했습니다.</p>
+          <p>Lighthouse 에서 크롤러가 따라갈 수 없는 링크 때문에 점수가 낮아지고 있었습니다.</p>
+          <p>링크를 고치면 점수는 오르지만, <b>해당 목록의 두 번째 페이지가 첫 번째와 완전히 동일한
+            HTML</b>이어서 같은 내용의 URL 이 하나 더 생깁니다. <b>점수 대신 검색 품질을 기준으로
+            판단해 그대로 뒀습니다.</b></p>
         </article>
 
       </div>
