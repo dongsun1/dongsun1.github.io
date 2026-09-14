@@ -198,18 +198,18 @@
     .col { grid-column: span 10; }
 
     /* 화면용 여백은 인쇄에서 전부 과하다 */
-    section { margin-top: 13px; }
-    hr { margin: 13px 0; }
-    hr.hair { margin: 12px 0; }
+    section { margin-top: 11px; }
+    hr { margin: 11px 0; }
+    hr.hair { margin: 10px 0; }
     .bar { height: 3px; margin-top: 10px; }
-    .unit { margin-top: 12px; }
+    .unit { margin-top: 10px; }
     .api { margin-top: 12px; padding-left: 12px; }
-    .case { margin-bottom: 14px; }
-    p { margin-bottom: 8px; }
+    .case { margin-bottom: 11px; }
+    p { margin-bottom: 7px; }
     ul { margin-top: 7px; }
-    li { margin-bottom: 3px; max-width: none; }
+    li { margin-bottom: 2px; max-width: none; }
     p { max-width: none; }
-    .out { margin: 10px 0; padding: 8px 0; gap: 10px 26px; }
+    .out { margin: 8px 0; padding: 7px 0; gap: 8px 24px; }
 
     /* 화면 CSS 가 li·p 를 px 로 못박아 둬서, body 의 pt 지정만으로는 본문이
        줄지 않는다. 인쇄에서는 본문 크기를 직접 덮는다 */
@@ -367,6 +367,17 @@
             </ul>
           </div>
         </div>
+
+        <div class="unit">
+          <h3>배포 파이프라인</h3>
+          <div class="stack">GitHub Actions · AWS CodeDeploy · S3 · PM2 · Amplify</div>
+          <ul>
+            <li>main 에 push 하면 운영·테스트 서버에 동시 배포됩니다. 빌드는 한 번만 하고 산출물을 양쪽이 나눠 씁니다</li>
+            <li>CodeDeploy 검증 훅이 <code>/health</code> 를 10초 간격으로 최대 2분간 확인하고, 응답이 없으면 배포를 실패로 끝냅니다</li>
+            <li>Aurora 가 private VPC 안에 있어 러너에서 마이그레이션을 돌릴 수 없습니다. 서버 쪽 배포 훅으로 옮겼습니다</li>
+            <li>PM2 클러스터 <span class="num">2</span>인스턴스를 reload 해 처리 중인 요청을 끊지 않고 교체합니다</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -488,7 +499,7 @@
           </div>
           <div class="tech">
             <dt>INFRA</dt>
-            <dd>AWS (EC2 · S3 · ALB) · CodePush</dd>
+            <dd>AWS (EC2 · S3 · ALB · CodeDeploy · Amplify) · GitHub Actions · PM2 · CodePush</dd>
           </div>
         </dl>
       </div>
