@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>김동선 — Frontend Developer</title>
-<meta name="description" content="매일 5만 명이 쓰는 리워드 광고 서비스의 프론트엔드를 맡고 있습니다. 사용자 앱·광고 지면·광고주 플랫폼 세 축을 만들고, 매체사와 API 계약을 주고받는 쪽에서 일해 왔습니다.">
-<meta property="og:title" content="김동선 — Frontend Developer">
-<meta property="og:description" content="매일 5만 명이 쓰는 리워드 광고 서비스의 프론트엔드를 맡고 있습니다. 사용자 앱·광고 지면·광고주 플랫폼 세 축을 만들고, 매체사와 API 계약을 주고받는 쪽에서 일해 왔습니다.">
+<meta name="robots" content="noindex">
+<title>김동선 — Backend Developer</title>
+<meta name="description" content="리워드 광고 서비스의 서버와 매체사 연동을 맡아, 피크 1,900 RPS 구간을 3년째 운영하고 있습니다. Node.js·PostgreSQL·Redis 로 API 를 만들고 AWS 위에 직접 배포합니다.">
+<meta property="og:title" content="김동선 — Backend Developer">
+<meta property="og:description" content="리워드 광고 서비스의 서버와 매체사 연동을 맡아, 피크 1,900 RPS 구간을 3년째 운영하고 있습니다. Node.js·PostgreSQL·Redis 로 API 를 만들고 AWS 위에 직접 배포합니다.">
 <meta property="og:type" content="profile">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -282,7 +283,7 @@
       <h1 class="wordmark">KIM<br>DONGSUN</h1>
     </div>
     <div style="grid-column: span 5;">
-      <div class="who">김동선<span>Frontend Developer · React · TypeScript<br>경력 4년 2개월</span></div>
+      <div class="who">김동선<span>Backend Developer · Node.js · PostgreSQL<br>경력 4년 2개월</span></div>
       <div class="reach">
         <a href="mailto:le12352@gmail.com">le12352@gmail.com</a>
         <a href="https://github.com/dongsun1">github.com/dongsun1</a>
@@ -298,22 +299,23 @@
     <div class="grid">
       <div class="lab"><div class="tag">SUMMARY<em>60초 요약</em></div></div>
       <div class="col">
-        <p class="open">스마트시티 관제 대시보드로 시작해, 지금은 매일 <span class="num">5만</span> 명이
-          쓰는 리워드 광고 서비스의 프론트엔드를 맡고 있습니다.</p>
+        <p class="open">매일 <span class="num">5만</span> 명이 쓰는 리워드 광고 서비스의 서버와
+          매체사 연동을 3년째 맡고 있습니다.</p>
         <dl class="sum">
           <div>
             <dt>만든 것</dt>
-            <dd>사용자 앱(React Native) · 광고 지면(React) · 광고주 셀프서브 플랫폼(Next.js) 세 축.
-              기획자·디자이너와 한 팀으로 일하고 저는 개발을 맡습니다.</dd>
+            <dd>매체사와 주고받는 양방향 연동 API, 리워드 앱 백엔드, 광고주 플랫폼의 결제·정산.
+              Node.js · PostgreSQL · Redis 로 만들고 AWS 위에 직접 배포합니다.</dd>
           </div>
           <div>
             <dt>고친 것</dt>
-            <dd>훅 하나로 27개 페이지가 빈 HTML 로 나가던 문제와, 전체 API 응답이 12ms 에서 160ms 로
-              늘고 일부 요청이 60초까지 밀린 장애. 둘 다 화면에서 드러났지만 원인은 다른 층에 있었습니다.</dd>
+            <dd>DB CPU 는 정상인데 전체 API 가 <span class="num">160ms</span> 로 느려지고 일부는
+              60초까지 지연된 장애. connection pool 포화가 원인이었고 <span class="num">9ms</span> 로
+              되돌렸습니다.</dd>
           </div>
           <div>
             <dt>남다른 점</dt>
-            <dd>내 마음대로 고칠 수 없는 코드를 다뤄 봤습니다. 매체사가 우리 API 를 물고 있어 응답
+            <dd>내 마음대로 고칠 수 없는 API 를 운영해 봤습니다. 매체사가 우리 응답을 물고 있어 필드
               하나 바꾸려면 상대 개발자와 먼저 합의해야 했고, 그 계약을 2년 넘게 유지했습니다.</dd>
           </div>
           <div>
@@ -337,22 +339,20 @@
       <div class="col">
         <dl style="margin: 0;">
           <div class="tech">
-            <dt>FRONTEND</dt>
-            <dd>React · TypeScript · Next.js · React Native · TanStack Query · SWR · Zustand ·
-              Tailwind CSS</dd>
-          </div>
-          <div class="tech">
-            <dt>TEST</dt>
-            <dd>Vitest · React Testing Library · Jest</dd>
-          </div>
-          <div class="tech">
             <dt>BACKEND</dt>
-            <dd>Node.js · Express · PostgreSQL · Prisma · Redis · AWS · GitHub Actions</dd>
+            <dd>Node.js · Express · PostgreSQL · Prisma · Redis · MongoDB</dd>
+          </div>
+          <div class="tech">
+            <dt>INFRA</dt>
+            <dd>AWS (EC2 · S3 · ALB · Aurora · CodeDeploy · Amplify) · GitHub Actions · PM2</dd>
+          </div>
+          <div class="tech">
+            <dt>FRONTEND</dt>
+            <dd>React · TypeScript · Next.js · React Native · TanStack Query · SWR · Zustand</dd>
           </div>
           <div class="tech">
             <dt>WORKFLOW</dt>
-            <dd>Claude Code · 자작 스킬/서브에이전트 · git worktree 병렬 · 프로젝트별 규칙·재발 방지
-              문서 축적</dd>
+            <dd>Claude Code · 자작 스킬/서브에이전트 · git worktree 병렬 · Vitest · Jest</dd>
           </div>
         </dl>
       </div>
@@ -367,12 +367,39 @@
         <div class="tag">WORK<em>경력</em><span class="yr">2023.07 – 현재</span></div>
       </div>
       <div class="col">
-        <h2 class="co">버프 <em>· Frontend Developer</em></h2>
-        <p class="client">1인 개발사를 운영하며 광고 회사 한 곳의 서비스를 전담합니다. 아래 세 제품은 그
-          클라이언트의 것으로, 기획자·디자이너와 한 팀으로 진행하고 저는 개발을 맡습니다.</p>
+        <h2 class="co">버프 <em>· Backend / Full-stack Developer</em></h2>
+        <p class="client">1인 개발사를 운영하며 광고 회사 한 곳의 서비스를 전담합니다. 기획자·디자이너와
+          한 팀으로 진행하고, 저는 서버·인프라와 그 위의 화면까지 맡습니다.</p>
 
         <div class="unit">
-          <h3>숏캐시 — 리워드 사용자 앱</h3>
+          <h3>광고 매체사 API 연동</h3>
+          <div class="stack">Node.js · Express · PostgreSQL · Redis</div>
+          <ul>
+            <li>외부 매체사가 우리 캠페인을 가져가고 참여 결과를 돌려주는 API 를 <b>스펙부터 직접
+              정의</b>했습니다. 외부 개발자가 쓰는 API 라 응답을 바꾸려면 사전 협의와 하위호환이 전제였습니다
+              — 평균 <span class="num">1,000 RPS</span> · 피크 <span class="num">1,900 RPS</span>,
+              7주 누적 <span class="num">44억 건</span>.</li>
+            <li>같은 요청이 매번 DB 로 내려가 응답이 느렸습니다. 중복 요청 제거·큐·캐시를 넣어 평균 응답
+              <span class="num">160ms → 9ms</span>, 잔여 수량 계산 방식을 바꿔 동시 참여 경합을 줄였습니다.</li>
+            <li>반대 방향은 우리가 상대 API 로 캠페인을 보냅니다. 전송이 누락돼도 알 수 없어, 우리 상태와
+              상대의 전송 상태를 <b>주기적으로 해시 비교</b>해 중복 등록과 누락을 막았습니다. 한 매체로 파일럿한
+              뒤 연동을 지우지 않고 대상에서만 빼 <b>롤백 가능하게</b> 구성했습니다.</li>
+          </ul>
+        </div>
+
+        <div class="unit">
+          <h3>배포 파이프라인</h3>
+          <div class="stack">GitHub Actions · AWS CodeDeploy · S3 · PM2 · Amplify</div>
+          <ul>
+            <li>Aurora 가 private VPC 안에 있어 CI 러너에서 마이그레이션을 돌릴 수 없었습니다. 마이그레이션을
+              <b>서버 쪽 배포 훅으로</b> 옮겨 VPC 안에서 실행되게 했습니다.</li>
+            <li>배포할 때마다 처리 중이던 요청이 끊겼습니다. PM2 클러스터를 reload 방식으로 바꿔
+              <b>무중단 교체</b>합니다.</li>
+          </ul>
+        </div>
+
+        <div class="unit">
+          <h3>숏캐시 — 리워드 앱 백엔드</h3>
           <div class="stack">React Native · Node.js · PostgreSQL · AWS
             <a href="https://play.google.com/store/apps/details?id=com.pluscash">Google Play</a>
             <a href="https://apps.apple.com/kr/app/id6474850803">App Store</a>
@@ -380,44 +407,29 @@
           <p class="client">Android <span class="num">5만+</span> 설치 · 평점 <span class="num">4.3</span>,
             iOS <span class="num">4.6</span> · Jest 테스트 72개</p>
           <ul>
-            <li>미션 완료를 판정하려면 <b>우리가 통제할 수 없는 외부 사이트 안에서</b> 검증이 돌아야 했습니다.
-              class 가 배포마다 난독화돼 <code>aria</code> 속성으로 요소를 찾고, 클릭이 아니라 상태 변화로
-              완료를 판정해, 8개월 동안 <span class="num">7개 서비스·41개 미션 유형</span>까지 넓혔습니다.</li>
-            <li>그 스크립트는 외부 사이트가 바뀔 때마다 깨지는데 스토어 심사를 기다리면 며칠이 걸렸습니다.
-              CodePush 서버를 직접 구성해 <b>심사 없이 당일 배포하고 문제가 생기면 되돌립니다</b>.</li>
+            <li>본인인증 개인정보가 앱과 로그를 거치면 유출 면이 넓어집니다. 앱은 <code>imp_uid</code> 만
+              넘기고 <b>서버가 PASS 에 직접 조회</b>하도록 역할을 갈랐습니다.</li>
+            <li>ATT 를 거부한 사용자는 광고 ID 를 못 받아 매체사 정산에서 빠졌습니다. 정산 식별자를 광고 ID 와
+              분리해 <b>동의 여부와 무관하게 정산이 유지</b>되게 했습니다.</li>
           </ul>
         </div>
 
         <div class="unit">
-          <h3>오퍼월 — 리워드 광고 지면</h3>
-          <div class="stack">React · TypeScript · SWR · Zustand · Vitest · React Testing Library</div>
-          <ul>
-            <li>광고사마다 요구하는 미션 로직이 달라, <b>요청이 올 때마다 지면 코드를 고쳐 배포</b>하고
-              있었습니다. 바뀌는 미션 로직과 고정된 화면 동작을 분리해 설정 기반으로 만들었고, 이후
-              미션 유형은 <b>배포 없이 어드민에서</b> 추가·변경합니다.</li>
-            <li>어디서 이탈하는지 알 수 없어 상세보기 → 복사 → 시작 → 제출 → 완료 퍼널을 매체별로
-              집계했습니다. 아래 전환율 급감도 이 지표에서 찾았습니다.</li>
-            <li>이미 터졌던 검색어 인코딩·지도 앱 미설치·인덱스 범위 문제를 재현 테스트로 고정 — 49개.</li>
-          </ul>
-        </div>
-
-        <div class="unit">
-          <h3>마케팅몰 — 광고주 플랫폼</h3>
-          <div class="stack">Next.js · TypeScript · React · Vitest · RTL
+          <h3>마케팅몰 — 광고주 결제·정산</h3>
+          <div class="stack">Next.js · TypeScript · Node.js
             <a href="https://marketingmall.co.kr">marketingmall.co.kr</a>
           </div>
           <ul>
-            <li>광고주가 대행사를 거쳐야만 광고를 집행할 수 있어, 상품 선택부터 결제·충전·정산까지 한
-              서비스에서 처리하는 <b>셀프서브 플랫폼</b>을 만들었습니다.</li>
-            <li>결제창은 통과했는데 서버 승인이 실패하는 일이 있어, <b>승인 응답까지 끝나야 포인트가
-              반영되도록</b> 바꿨습니다.</li>
-            <li>만료된 구독을 즉시 차단하면 되돌릴 방법이 없어 상태를 <code>active / grace / expired /
-              suspended / none</code> 다섯으로 나누고 유예 기간과 복구 일자를 안내합니다. 테스트 39개.</li>
+            <li>결제창은 통과했는데 서버 승인이 실패하면 포인트가 붕 떴습니다. 결제창 통과와 충전 완료를
+              갈라 <b>승인 응답까지 끝나야 반영</b>되도록 바꿨습니다.</li>
+            <li>세금계산서·현금영수증 수수료 때문에 충전할 금액과 실제 결제액이 달라져, 증빙을 고르는
+              시점에 최종 금액을 다시 계산합니다. 같은 계산이 한 파일에 네 곳 흩어져 있어 한 함수로 모으고
+              테스트 39개로 고정했습니다.</li>
           </ul>
         </div>
 
-        <p style="margin-top: 14px;">그 밖에 운영 어드민 78개 화면, 매체사 API 연동(피크 <span class="num">1,900
-          RPS</span>), 배포 파이프라인 — <a href="/portfolio/">포트폴리오</a>.</p>
+        <p style="margin-top: 14px;">그 밖에 사용자 앱·광고 지면·운영 어드민 78개 화면의 프론트엔드도
+          같이 맡았습니다 — <a href="/portfolio/">포트폴리오</a>.</p>
       </div>
     </div>
 
@@ -433,11 +445,8 @@
           <h3>스마트시티 IoT 관제 플랫폼</h3>
           <div class="stack">React · TypeScript · Zustand · React Query</div>
           <ul>
-            <li>스마트 횡단보도·스마트폴 등 장비마다 봐야 하는 지표가 달라 <b>이상 상태가 먼저 보이도록</b>
-              정보 구조를 다시 짰고, 센서 스트림이 끊길 때 값이 빈 칸으로 깜빡이지 않게 했습니다.</li>
-            <li>여러 개발자가 같은 UI 를 각자 만들고 있어 <b>인터페이스를 먼저 합의한 뒤</b> 공용 컴포넌트
-              라이브러리를 만들었습니다 — 중복 코드 <span class="num">40% 감소</span>.</li>
-            <li>종일 띄워 두는 화면이라 초기 로딩이 곧 체감 품질 — 이미지 최적화와 코드 스플리팅으로
+            <li>스마트 횡단보도·스마트폴 등 IoT 장비의 실시간 관제 화면. 센서 스트림이 끊길 때 값이 빈 칸으로
+              깜빡이지 않게 했고, 공용 컴포넌트 라이브러리로 중복 코드 <span class="num">40% 감소</span>,
               Lighthouse <span class="num">30 → 90</span>.</li>
           </ul>
         </div>
@@ -452,23 +461,25 @@
       <div class="lab"><div class="tag">CASES<em>문제 해결</em></div></div>
       <div class="col">
         <ul>
-          <li><b>훅 하나 때문에 27개 페이지가 빈 HTML 로 렌더링되고 있었습니다.</b> 브라우저는 멀쩡한데 서버
-            HTML 에만 본문이 없었고, 27개에서 같이 나타나 공통 코드부터 봤습니다. 깜빡임을 막으려 쓴
-            <code>useSyncExternalStore</code> 가 SSR 에서도 돈 탓이었습니다 — 서버 HTML 본문
-            <span class="num">0자 → 8,391자</span>, 모바일 TBT <span class="num">19.4초 → 40ms</span>.</li>
-          <li><b>DB CPU 는 정상인데 전체 API 가 느려진 이유를 찾았습니다.</b> 요청량도 평소와 같았지만
-            connection pool 만 모두 차 있었습니다. 중복 요청 제어가 없어 한 파트너의 반복 요청이
-            connection 을 물고 있었고, 중복 제거·동시 실행 제한·10초 캐시로
-            <span class="num">160ms → 9ms</span>. 배포 검증 기준에 응답 시간과 connection 사용량을 넣었습니다.</li>
+          <li><b>DB CPU 는 정상인데 전체 API 가 느려진 이유를 찾았습니다.</b> 고트래픽 파트너의 미션 재오픈
+            조건을 바꾼 배포 뒤 응답이 12ms 에서 160ms 로 늘고 일부는 60초까지 밀렸습니다. 요청량은 평소와
+            같고 DB CPU 도 30% 수준이라 DB 는 아니라고 봤지만, connection pool 만 모두 차 있었습니다. 중복
+            요청 제어가 없어 한 파트너의 반복 요청이 connection 을 계속 물고 있었습니다 — 중복 제거·동시 실행
+            제한·10초 캐시로 <span class="num">160ms → 9ms</span>. 배포 검증 기준에 DB CPU 만이 아니라
+            응답 시간과 connection 사용량을 넣었습니다.</li>
+          <li><b>제휴사 지면 요청의 31%가 헛것이라는 걸 로그에서 찾아 없앴습니다.</b> 하루치 ALB 액세스 로그
+            227만 요청에서 preflight 가 <span class="num">31%</span>(하루 40,668건)라는 비율을 먼저
+            찾았습니다. 액세스 로그에는 요청 헤더가 없어 원인은 알 수 없었고, 헤더 이름만 세는 계측을 잠깐
+            붙여 확정했습니다 — 모든 요청에 붙던 <code>Content-Type</code> 하나였습니다. GET 은 본문이 없어
+            의미가 없는데, 붙는 순간 단순요청 조건이 깨져 왕복이 하나씩 더 생깁니다. GET 에서 걷어내고 POST 는
+            <code>Access-Control-Max-Age</code> 로 캐시해 preflight <span class="num">94% 감소</span>,
+            GET 은 <span class="num">0건</span>.</li>
         </ul>
-        <p style="margin-top: 12px;">전환율 68%→7% 급감, 제휴사 요청의 31%가 preflight 였던 건을 포함한
+        <p style="margin-top: 12px;">전환율 68%→7% 급감, 27개 페이지가 빈 HTML 로 나가던 건을 포함한
           네 건의 추적 전문은 <a href="/portfolio/">포트폴리오</a>에.</p>
       </div>
     </div>
   </section>
-
-  <hr>
-
 
 </div>
 </body>
