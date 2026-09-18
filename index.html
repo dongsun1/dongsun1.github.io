@@ -187,7 +187,7 @@
   }
 
   @media print {
-    @page { margin: 11mm 12mm 11mm; }
+    @page { margin: 10mm 11mm 10mm; }
 
     /* 글자 크기는 화면과 같게 둔다. 종이에 맞추는 것은 여백으로만 한다 —
        글자를 줄이면 웹에서 본 것과 다른 문서가 된다.
@@ -209,11 +209,11 @@
     .out .was { font-size: 12pt; }
 
     /* 여백만 조인다 */
-    section { margin-top: 13px; }
-    hr { margin: 13px 0; }
+    section { margin-top: 11px; }
+    hr { margin: 11px 0; }
     hr.hair { margin: 10px 0; }
     .bar { margin-top: 10px; }
-    .unit { margin-top: 12px; }
+    .unit { margin-top: 10px; }
     .api { margin-top: 12px; }
     .case { margin-bottom: 13px; }
     p { margin-bottom: 6px; max-width: none; }
@@ -240,6 +240,8 @@
     /* .api 까지 붙잡으면 매체사 블록을 통째로 다음 장으로 밀어 페이지마다
        네댓 줄씩 버린다. 지표 블록만 쪼개지지 않게 한다 */
     .out { break-inside: avoid; }
+    /* CASES 는 네 줄이 한 덩어리로 읽혀야 한다 — 쪼개지면 마지막 장에 두 줄만 남는다 */
+    .cases { break-inside: avoid; }
     h1, h2, h3, h4 { break-after: avoid; }
   }
 </style>
@@ -269,217 +271,14 @@
       <div class="lab"><div class="tag">ABOUT<em>자기소개</em></div></div>
       <div class="col">
         <p class="open">광고 제품을 화면부터 인프라까지 맡아, 지표가 깨지면 원인을 끝까지 추적해왔습니다.</p>
-        <p>React·TypeScript 로 화면을 만들고, Node.js·PostgreSQL 로 그 뒤를 함께 만들었습니다.
-          한쪽에서 드러난 문제의 원인이 반대쪽에 있는 경우가 많아, 화면에서 시작해 쿼리와 인프라까지
-          같은 사람이 따라가는 편이 빨랐습니다.</p>
-        <p>1인 개발사를 운영하며 주식회사 퍼펙트의 제품을 3년째 전담하고 있습니다. 사용자 앱, 광고 지면, 광고주
-          플랫폼, 운영 어드민을 만들고 여러 매체사와 API를 설계·운영하면서, 성능과 안정성뿐 아니라
-          제품과 운영에 미치는 영향까지 함께 봤습니다.</p>
-        <p>개발에는 Claude Code 를 쓰고, 작업마다 독립된 git worktree 에 에이전트를 띄우는 Orca 로
-          여러 건을 동시에 진행합니다. 구현 에이전트와 리뷰 에이전트를 분리하고 lint, test, typecheck,
-          build 까지 반복 검증하며, AI 가 만든 결과는 실제 요구사항과 운영 중 겪은 문제를 기준으로
-          직접 판단합니다.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr>
-
-  <section>
-    <div class="grid">
-      <div class="lab">
-        <div class="tag">WORK<em>경력</em><span class="yr">2023.07 – 현재</span></div>
-      </div>
-      <div class="col">
-        <h2 class="co">버프 <em>· 풀스택 개발자</em></h2>
-        <div class="client">주식회사 퍼펙트 전담 · <span class="num">3</span>년</div>
-        <p style="margin-top: 12px;">기획자·디자이너와 함께 제품을 만들었고, 사용자 앱부터 광고 지면,
-          광고주 플랫폼, 운영 어드민, 서버와 인프라까지 개발했습니다.</p>
-
-        <hr class="hair">
-
-        <div class="unit" style="margin-top: 0;">
-          <h3>숏캐시 — 리워드 사용자 앱</h3>
-          <div class="stack">React Native · Node.js · PostgreSQL · AWS · Jest
-            <a href="https://play.google.com/store/apps/details?id=com.pluscash">Google Play</a>
-            <a href="https://apps.apple.com/kr/app/id6474850803">App Store</a></div>
-          <p>리워드 미션 사용자 앱. Android <span class="num">5만+</span> 설치 · 평점
-            <span class="num">4.3</span>, iOS 평점 <span class="num">4.6</span>.</p>
-          <ul>
-            <li>네이버·유튜브·쿠팡 등 우리가 통제할 수 없는 외부 사이트에서 도는 스크립트를 <span class="num">8</span>개월 동안 <span class="num">7</span>개 서비스·<span class="num">41</span>개 미션 유형까지 넓혔습니다</li>
-            <li>외부 사이트 class 가 배포마다 난독화돼 <code>aria</code> 속성으로 요소를 찾고, 클릭이 아니라 상태 변화로 완료를 판정합니다. 예외는 호스트 페이지로 번지지 않게 격리해 브릿지로 앱에 전달합니다</li>
-            <li>설치 여부에 따라 앱/웹으로 분기하는 실행 방식을 URL Builder로 추상화</li>
-            <li>CodePush 서버를 직접 구성해, 스토어 심사를 기다리지 않고 당일 배포하고 문제가 생기면 되돌립니다</li>
-            <li>PASS 본인인증은 앱이 <code>imp_uid</code>만 넘겨 개인정보가 앱과 로그를 거치지 않고, ATT 를 거부해도 기기 식별자로 매체사 정산이 유지됩니다</li>
-            <li>Jest 테스트 <span class="num">72</span>개 — 미션 URL 판정, 유튜브 ID 추출, 가이드 HTML 정제. 마지막 변환기는 <a href="https://github.com/dongsun1/styled-html-to-text">테스트와 함께 공개했습니다</a></li>
-          </ul>
-        </div>
-
-        <div class="unit">
-          <h3>오퍼월 — 리워드 광고 지면</h3>
-          <div class="stack">React · TypeScript · SWR · Zustand · Vitest · React Testing Library</div>
-          <p>여러 회사 앱에 WebView 로 실려 나가는 광고 지면. 호스트 앱과는 네이티브 브릿지로
-            통신합니다.</p>
-          <ul>
-            <li>광고사마다 미션 로직이 바뀌어 요청마다 지면 코드를 고쳐 배포하던 문제를, 미션 로직을 설정 기반으로 분리해 어드민에서 바꾸도록 해결</li>
-            <li>상세보기 → 복사 → 시작 → 제출 → 완료 이벤트로 매체·카테고리별 전환 퍼널을 집계. 아래 전환율 급감도 이 지표에서 발견했습니다</li>
-            <li>Vitest + RTL 테스트 <span class="num">49</span>개 — 이미 터졌던 검색어 인코딩, 지도 앱 미설치, 인덱스 범위 문제를 재현 테스트로 고정</li>
-          </ul>
-        </div>
-
-        <div class="unit">
-          <h3>광고 운영 어드민</h3>
-          <div class="stack">React · TypeScript · Next.js · Ant Design</div>
-          <p>캠페인·참여자·정산·미션 검수를 다루는 사내 운영 도구. <b>2년 5개월간 78개 화면</b>을 만들었습니다.</p>
-          <ul>
-            <li>정산 데이터를 내보낼 때 화면에 적용한 필터가 그대로 반영되도록 구현</li>
-            <li>하루 종일 같은 화면을 보는 운영자가 사용자라, 상태를 배지와 색으로 스캔할 수 있게 구성</li>
-            <li>마케팅몰과 같은 API 를 쓰지만, 광고주와 운영자는 필요한 정보가 달라 밀도를 다르게 설계</li>
-          </ul>
-        </div>
-
-        <div class="unit">
-          <h3>마케팅몰 — 광고주 플랫폼</h3>
-          <div class="stack">Next.js · TypeScript · React · Vitest · RTL
-            <a href="https://marketingmall.co.kr">marketingmall.co.kr</a></div>
-          <p>광고주가 대행사 없이 상품 선택부터 결제·충전·정산까지 처리하는 셀프서브 플랫폼.</p>
-          <ul>
-            <li>결제창은 통과했는데 서버 승인이 실패하는 일이 있어, 승인 응답까지 끝나야 포인트가 반영되도록 바꿨습니다</li>
-            <li>세금계산서·현금영수증 수수료로 충전액과 결제액이 달라져, 증빙을 고르는 시점에 최종 금액을 재계산합니다</li>
-            <li>구독 상태를 <code>active</code> / <code>grace</code> / <code>expired</code> / <code>suspended</code> / <code>none</code>으로 구분 — 만료 뒤 <span class="num">30</span>일은 데이터를 그대로 두고 복구 일자를 안내합니다</li>
-            <li>같은 금액 계산이 한 파일에 네 곳 흩어져 있어 한 함수로 모으고, Vitest + RTL 테스트 <span class="num">39</span>개로 고정</li>
-          </ul>
-        </div>
-
-        <div class="unit">
-          <h3>광고 매체사 API 연동</h3>
-          <div class="stack">Node.js · Express · PostgreSQL · Redis</div>
-          <p>버즈빌은 매체사가 우리 API 를 호출해 캠페인을 가져가고, 퍼플페퍼는 우리가 상대 API 를
-            호출해 캠페인을 보냅니다. 양쪽 방향을 다 설계하고 운영했습니다.</p>
-          <ul>
-            <li>캠페인 목록·참여 결과 API 스펙을 직접 정의하고, 외부 개발자가 쓰는 만큼 하위호환을 챙김</li>
-            <li>평균 <span class="num">1,000 RPS</span> · 피크 <span class="num">1,900 RPS</span> — 일 <span class="num">9,000만 건</span>, 7주 누적 <span class="num">44억 건</span> 처리</li>
-            <li>중복 요청 제거·큐·캐시로 평균 응답 <span class="num">160ms → 9ms</span></li>
-            <li>잔여 수량 계산 방식을 바꿔 동시 참여 경합 감소</li>
-            <li>내보내는 쪽은 우리 상태와 상대의 전송 상태를 주기적으로 해시 비교해 중복 등록·누락 방지</li>
-            <li>한 매체로 파일럿 후, 연동을 지우지 않고 대상에서 빼 롤백 가능하게 구성</li>
-          </ul>
-        </div>
-
-        <div class="unit">
-          <h3>배포 파이프라인</h3>
-          <div class="stack">GitHub Actions · AWS CodeDeploy · S3 · PM2 · Amplify</div>
-          <ul>
-            <li>Aurora 가 private VPC 안에 있어 러너에서 마이그레이션을 돌릴 수 없습니다. 서버 쪽 배포 훅으로 옮겼습니다</li>
-            <li>PM2 클러스터 <span class="num">2</span>인스턴스를 reload 해 처리 중인 요청을 끊지 않고 교체합니다</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="grid">
-      <div class="lab">
-        <div class="tag"><span class="yr" style="margin-top: 0;">2022.07 – 2023.07</span></div>
-      </div>
-      <div class="col">
-        <h2 class="co">그렉터 <em>· Frontend Developer</em></h2>
-
-        <div class="unit" style="margin-top: 22px;">
-          <h3>스마트시티 IoT 관제 플랫폼</h3>
-          <div class="stack">React · TypeScript · Zustand · React Query</div>
-          <p>스마트 횡단보도·스마트폴 등 IoT 장비의 실시간 관제 화면을 개발했습니다. 센서 스트림이
-            끊기거나 지연될 때 값이 빈 칸으로 깜빡이지 않도록 상태를 관리했고, 공용 컴포넌트
-            라이브러리를 만들어 중복 코드를 줄였습니다. 이미지 최적화와 코드 스플리팅으로 Lighthouse
-            점수는 <span class="num">30 → 90</span> 으로 올렸습니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <hr>
-  <section>
-    <div class="grid">
-      <div class="lab"><div class="tag">CASES<em>문제 해결</em></div></div>
-      <div class="col">
-
-        <article class="case">
-          <h3>전환율이 68%에서 7%로 떨어진 원인을 매체별 퍼널에서 찾았습니다</h3>
-          <p>미션 참여 퍼널을 매체·카테고리별로 집계하고 있었는데, 전체 전환율이 평소 45% 수준에서
-            15%까지 떨어진 구간이 있었습니다.
-            <b>매체별로 나눠 보니 한 매체만 68%에서 7%로 떨어졌고 다른 매체는 큰 변화가 없었습니다.</b></p>
-          <p>같은 기간 그 매체의 상세보기는 약 12배 늘었는데 완료 수는 그대로였습니다.
-            <b>유입이 는 것이 아니라 참여가 막혀 같은 목록을 반복 조회하는 상태</b>로 봤습니다.</p>
-          <p>원인은 <b>소진 여부를 판단하는 캐시를 자사 미션 조회 판정보다 먼저 확인하는 순서</b>였습니다.
-            노출돼야 할 미션이 차단되면서 카테고리 간 재조회가 반복됐습니다.</p>
-          <p>판정 순서를 바꾸고 전체 조회 결과가 비었을 때만 소진으로 기록하도록 고쳤습니다. 해당 매체
-            전환율은 <b>66%로 회복</b>해 <b>3주간 유지</b>됐습니다.</p>
-          <p>콜백 실패도 전환 실패로 잡히고 있었는데, 사유별로 나눠 보니 <b>78.5%가 중복 참여</b>였고
-            추적 ID 관련은 <b>0건</b>이었습니다. 이후 사유별 카운터로 적재해 <b>진짜 장애와 정상 중복이
-            섞이지 않게</b> 했습니다.</p>
-        </article>
-
-        <article class="case">
-          <h3>DB CPU는 정상인데 전체 API가 느려진 이유를 찾았습니다</h3>
-          <p>특정 고트래픽 파트너의 미션 재오픈 조건을 변경한 배포 이후
-            <b>전체 API 응답 시간이 12ms에서 160ms 수준으로 증가</b>했고, 일부 요청은 최대 60초까지
-            지연되었습니다.</p>
-          <p>요청량은 평소와 비슷했고 <b>DB CPU도 약 30% 수준이었지만 DB connection pool이 모두
-            사용되고 있었습니다.</b></p>
-          <p>요청 흐름을 추적한 결과 <b>공용 큐나 중복 요청 제어 없이 동일 요청마다 DB 쿼리가
-            실행</b>되고 있었고, 특정 파트너의 반복 요청이 connection을 지속적으로 점유하고 있었습니다.</p>
-          <p>동일 요청에 대해 하나의 DB 호출만 실행하도록 중복 요청을 제거하고, 동시 실행 수를 제한했으며,
-            10초 캐시를 적용했습니다.</p>
-          <div class="out">
-            <div><div class="k">전체 API 응답 시간</div><div class="v"><span class="was">160ms →</span> 9ms</div></div>
-            <div><div class="k">최대 지연</div><div class="v"><span class="was">60초 →</span> 해소</div></div>
-          </div>
-          <p><b>장애 전 12ms보다도 빨라졌습니다.</b> 중복 요청을 없애면서 원래 매번 하던 DB 조회까지
-            줄었기 때문입니다.</p>
-          <p>같은 보호 패턴을 외부 파트너 조회 API에도 적용했고, 배포 검증 기준에 API 응답 시간과
-            connection 사용량을 추가했습니다.</p>
-        </article>
-
-        <article class="case">
-          <h3>훅 하나 때문에 27개 페이지가 빈 HTML로 렌더링되고 있었습니다</h3>
-          <p>검색 노출 문제를 확인하던 중 <b>브라우저에서는 정상적으로 렌더링되지만 서버에서 내려오는
-            HTML에는 본문이 거의 없는</b> 문제가 발생했습니다.</p>
-          <p>동일한 문제가 27개 페이지에서 발생하고 있어 공통 코드부터 확인했고,
-            <b><code>_app.tsx</code>의 <code>useSyncExternalStore</code> 사용 방식이 원인</b>임을
-            확인했습니다.</p>
-          <p>로컬 상태 복원 전 화면 깜빡임을 방지하기 위해 작성한 코드가 SSR에서도 실행되면서 서버에서
-            본문을 렌더링하지 못하고 있었습니다.</p>
-          <p>상태 복원과 화면 렌더링을 분리해 서버에서는 본문을 먼저 렌더링하고 클라이언트에서 상태를
-            복원하도록 구조를 변경했습니다.</p>
-          <div class="out">
-            <div><div class="k">서버 HTML 본문</div><div class="v"><span class="was">0자 →</span> 8,391자</div></div>
-            <div><div class="k">모바일 TBT</div><div class="v"><span class="was">19.4초 →</span> 40ms</div></div>
-            <div><div class="k">Desktop 성능</div><div class="v"><span class="was">57 →</span> 96</div></div>
-            <div><div class="k">FAQ LCP</div><div class="v"><span class="was">13.5초 →</span> 2초</div></div>
-          </div>
-        </article>
-
-        <article class="case">
-          <h3>요청의 31%가 헛것이라는 걸 로그에서 찾아 없앴습니다</h3>
-          <p>실사용자 성능을 매체별로 보려고 계측을 직접 만들었습니다. 지면에서 Core Web Vitals 를
-            표본 추출해 보내고, 서버가 매체별 <span class="num">p75</span> 로 집계합니다. 수집이
-            지면을 느리게 만들면 재려던 값이 나빠지므로, 수집 코드는 지연 로드해
-            <b>초기 번들을 늘리지 않았고</b> 지표는 지면이 숨겨질 때 한 번에 보냅니다.</p>
-          <p>표본을 붙이는 김에 하루치 ALB 액세스 로그(<span class="num">227만</span> 요청)를 열어
-            매체사 연동 실사용을 셌습니다. <b>제휴사 지면 요청의 31%(하루 40,668건)가
-            preflight</b>였습니다.</p>
-          <p>액세스 로그에는 요청 헤더가 없어 원인을 알 수 없었습니다. 서버에 헤더 이름만 세는 계측을
-            잠깐 붙여 확정했는데, <b>원인은 모든 요청에 붙던 <code>Content-Type</code> 하나</b>였습니다.
-            HTTP 클라이언트 기본 설정이 GET 에도 붙이고 있었고, GET 은 본문이 없어 의미가 없는데
-            붙는 순간 단순요청 조건이 깨져 왕복이 하나씩 더 생깁니다.</p>
-          <p>GET 에서 헤더를 걷어내 preflight 자체를 없애고, 본문이 있어 피할 수 없는 POST 는
-            <code>Access-Control-Max-Age</code> 로 캐시했습니다. 같은 계측으로 재보니
-            <b>하루 40,668건에서 2,265건으로 94% 줄었고</b>, GET preflight 는 <b>0건</b>이 됐습니다.</p>
-          <p>고치고 나서야 실사용자 기준 "before" 가 없다는 걸 알았습니다. 그래서 API 응답 시간도
-            같은 파이프라인으로 재기 시작했습니다 — <b>다음 개선은 전후를 숫자로 말할 수 있게</b>.</p>
-        </article>
-
-
+        <p>React·TypeScript 로 화면을 만들고 Node.js·PostgreSQL 로 그 뒤를 함께 만들었습니다. 한쪽에서
+          드러난 문제의 원인이 반대쪽에 있는 경우가 많아, 화면에서 시작해 쿼리와 인프라까지 같은
+          사람이 따라가는 편이 빨랐습니다. 1인 개발사를 운영하며 광고 제품 하나를 3년째 전담하고
+          있습니다.</p>
+        <p>개발에는 Claude Code 를 쓰고, 작업마다 독립된 git worktree 에 에이전트를 띄워 여러 건을
+          동시에 진행합니다. 반복되는 작업은 절차를 스킬로 고정했고, 커밋은 리뷰 에이전트를 거쳐야만
+          통과하도록 <code>--no-verify</code> 까지 훅으로 막아뒀습니다. 프로젝트마다 규칙과 재발 방지
+          문서를 남겨 같은 문제를 다시 밟지 않게 합니다.</p>
       </div>
     </div>
   </section>
@@ -508,7 +307,127 @@
             <dt>TEST</dt>
             <dd>Vitest · React Testing Library · Jest</dd>
           </div>
+          <div class="tech">
+            <dt>WORKFLOW</dt>
+            <dd>Claude Code · 자작 스킬/서브에이전트 · git worktree 병렬 · 프로젝트별 규칙·재발 방지
+              문서 축적</dd>
+          </div>
         </dl>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <div class="grid">
+      <div class="lab">
+        <div class="tag">WORK<em>경력</em><span class="yr">2023.07 – 현재</span></div>
+      </div>
+      <div class="col">
+        <h2 class="co">버프 <em>· 풀스택 개발자</em></h2>
+        <div class="client">주식회사 퍼펙트 전담 · <span class="num">3</span>년</div>
+        <p style="margin-top: 12px;">기획자·디자이너와 함께 제품을 만들었고, 사용자 앱부터 광고 지면,
+          광고주 플랫폼, 운영 어드민, 서버와 인프라까지 개발했습니다.
+          프로젝트별 구현 상세는 <a href="/portfolio/">포트폴리오</a>에 있습니다.</p>
+
+        <hr class="hair">
+
+        <div class="unit" style="margin-top: 0;">
+          <h3>숏캐시 — 리워드 사용자 앱</h3>
+          <div class="stack">React Native · Node.js · PostgreSQL · AWS · Jest
+            <a href="https://play.google.com/store/apps/details?id=com.pluscash">Google Play</a>
+            <a href="https://apps.apple.com/kr/app/id6474850803">App Store</a></div>
+          <p>리워드 미션 사용자 앱. Android <span class="num">5만+</span> 설치 · 평점
+            <span class="num">4.3</span>, iOS 평점 <span class="num">4.6</span>.</p>
+          <p>통제할 수 없는 외부 사이트에서 도는 미션 스크립트를 <span class="num">8</span>개월 동안
+            <span class="num">7</span>개 서비스·<span class="num">41</span>개 미션 유형까지 넓혔고,
+            CodePush 서버를 직접 구성해 스토어 심사 없이 당일 배포합니다. Jest 테스트 <span class="num">72</span>개.</p>
+        </div>
+
+        <div class="unit">
+          <h3>오퍼월 — 리워드 광고 지면</h3>
+          <div class="stack">React · TypeScript · SWR · Zustand · Vitest · React Testing Library</div>
+          <p>여러 회사 앱에 WebView 로 실려 나가는 광고 지면. 광고사마다 바뀌는 미션 로직을 설정
+            기반으로 분리해 배포 없이 어드민에서 바꾸도록 했고, 매체·카테고리별 전환 퍼널을
+            집계합니다. 테스트 <span class="num">49</span>개.</p>
+        </div>
+
+        <div class="unit">
+          <h3>광고 운영 어드민</h3>
+          <div class="stack">React · TypeScript · Next.js · Ant Design</div>
+          <p>캠페인·참여자·정산·미션 검수를 다루는 사내 운영 도구. <b>2년 5개월간 78개 화면</b>을
+            만들었습니다. 하루 종일 같은 화면을 보는 운영자가 사용자라 상태를 색으로 스캔하게 했습니다.</p>
+        </div>
+
+        <div class="unit">
+          <h3>마케팅몰 — 광고주 플랫폼</h3>
+          <div class="stack">Next.js · TypeScript · React · Vitest · RTL
+            <a href="https://marketingmall.co.kr">marketingmall.co.kr</a></div>
+          <p>광고주가 대행사 없이 상품 선택부터 결제·충전·정산까지 처리하는 셀프서브 플랫폼. 결제
+            승인 응답까지 끝나야 포인트가 반영되도록 바꿨고, 구독 상태를 <span class="num">5</span>단계로
+            나눴습니다. 테스트 <span class="num">39</span>개.</p>
+        </div>
+
+        <div class="unit">
+          <h3>배포 파이프라인</h3>
+          <div class="stack">GitHub Actions · AWS CodeDeploy · S3 · PM2 · Amplify</div>
+          <p>Aurora 가 private VPC 안에 있어 러너에서 마이그레이션을 돌릴 수 없어 서버 쪽 배포 훅으로
+            옮겼고, PM2 클러스터를 reload 해 처리 중인 요청을 끊지 않고 교체합니다.</p>
+        </div>
+
+        <div class="unit">
+          <h3>광고 매체사 API 연동</h3>
+          <div class="stack">Node.js · Express · PostgreSQL · Redis</div>
+          <p>매체사가 우리 API 를 호출해 가져가는 방향과 우리가 상대 API 로 보내는 방향을 모두
+            설계·운영했습니다. 평균 <span class="num">1,000 RPS</span> · 피크 <span class="num">1,900 RPS</span>,
+            일 <span class="num">9,000만 건</span> — 중복 요청 제거·큐·캐시로 평균 응답
+            <span class="num">160ms → 9ms</span>.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="grid">
+      <div class="lab">
+        <div class="tag"><span class="yr" style="margin-top: 0;">2022.07 – 2023.07</span></div>
+      </div>
+      <div class="col">
+        <h2 class="co">그렉터 <em>· Frontend Developer</em></h2>
+
+        <div class="unit" style="margin-top: 22px;">
+          <h3>스마트시티 IoT 관제 플랫폼</h3>
+          <div class="stack">React · TypeScript · Zustand · React Query</div>
+          <p>스마트 횡단보도·스마트폴 등 IoT 장비의 실시간 관제 화면. 센서 스트림이 끊길 때 값이
+            깜빡이지 않도록 상태를 관리했고, 이미지 최적화와 코드 스플리팅으로 Lighthouse
+            <span class="num">30 → 90</span>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <section>
+    <div class="grid cases">
+      <div class="lab"><div class="tag">CASES<em>문제 해결</em></div></div>
+      <div class="col">
+        <ul>
+          <li><b>전환율이 68%에서 7%로 떨어진 원인을 매체별 퍼널에서 찾았습니다.</b> 소진 여부를
+            판단하는 캐시를 자사 미션 조회 판정보다 먼저 확인하던 순서가 원인이었습니다. 판정 순서를
+            바꿔 <span class="num">66%로 회복</span>, <span class="num">3주간 유지</span>.</li>
+          <li><b>DB CPU 는 정상인데 전체 API 가 느려진 이유를 찾았습니다.</b> 중복 요청 제어 없이 같은
+            쿼리가 매번 실행되며 connection pool 을 점유하고 있었습니다 —
+            <span class="num">160ms → 9ms</span>, 최대 60초 지연 해소.</li>
+          <li><b>훅 하나 때문에 27개 페이지가 빈 HTML 로 렌더링되고 있었습니다.</b> 화면 깜빡임을 막으려
+            쓴 <code>useSyncExternalStore</code> 가 SSR 에서도 실행된 탓이었습니다. 서버 HTML 본문
+            <span class="num">0자 → 8,391자</span>, 모바일 TBT <span class="num">19.4초 → 40ms</span>.</li>
+          <li><b>제휴사 지면 요청의 31%가 헛것이라는 걸 로그에서 찾아 없앴습니다.</b> 하루치 ALB 로그
+            227만 요청에서 preflight 비율을 찾아내고, 헤더 계측을 따로 붙여 GET 에까지 붙던
+            <code>Content-Type</code> 하나가 원인임을 확정했습니다 — preflight
+            <span class="num">94% 감소</span>, GET 은 <span class="num">0건</span>.</li>
+        </ul>
+        <p style="margin-top: 12px;">네 건의 추적 과정은 <a href="/portfolio/">포트폴리오</a>에 전문으로 있습니다.</p>
       </div>
     </div>
   </section>
