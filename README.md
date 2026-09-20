@@ -50,9 +50,30 @@
 수치와 사실은 노션 이력서 원본이 기준이다. **회고("지금이라면")에 없는 사실을
 지어내지 말 것** — 면접에서 그대로 질문받는다.
 
+## 2026 기준 (2026-09 조사)
+
+2024년과 실제로 달라진 것만 적는다. 분량·PDF·수치화 같은 기본은 그대로다.
+
+- **AI 도구는 나열하면 신호가 0이다.** "Claude Code 사용" 은 빼고, `AI 가 한 일 / 내가
+  판단한 일` 을 문장 안에서 나눠 쓴다. 채용 가이드가 피해야 할 방식으로 도구 나열을 직접
+  지목한다 — [잡코리아 2026-05](https://www.jobkorea.co.kr/recruit/careers/articles/ai-competency-resume)
+- **STAR → PAAR.** 구현 사실은 변별력이 없어졌고, `문제 → 대안 검토 → 실행 → 결과` 중
+  **대안 검토를 면접관이 가장 본다** — [서치라이트 2026-06](https://blog.searchright.net/developer-career-description-examples/)
+- **수치 뒤에 측정 방법을 붙인다.** 2025년 자소서의 64.4% 가 생성형 AI 작성 추정이라
+  숫자만 있으면 과장으로 의심받는다 — [전자신문 2026-01](https://www.etnews.com/20260109000170)
+- **포트폴리오는 "만든 것" 이 아니라 판단 기록이다.** 사내 성과는 검증이 안 되므로
+  *내 몫을 분리한 문서* 가 코드보다 많이 읽힌다 — [youngju.dev 2026-08](https://www.youngju.dev/blog/career/2026-08-15-career-moves-side-projects-and-portfolio)
+- **첨부 파일을 전제로 한다.** 국내 대기업 지원서는 PDF 업로드가 기본이고, 추가 클릭을
+  요구하는 형식(노션 토글·권한 잠금)은 불리하다. 그래서 세 문서 모두 PDF 를 같이 둔다.
+
+확인 못 한 것: "AI 도구를 안 쓰면 감점" 이라는 국내 근거는 없다. 1인 개발사 경력의 2026년
+기재 가이드도 없다. 둘 다 추측으로 문서에 반영하지 않았다.
+
 ## 수정
 
 `resume/index.html` 을 고치고 `./sync.sh` 를 돌린 뒤 push 한다.
+**본문을 고쳤으면 `./pdf.sh` 도 같이 돌린다** — 안 돌리면 페이지는 새 내용인데
+내려받는 PDF 만 옛 내용으로 남는다.
 `resume/server/index.html` 과 `portfolio/index.html` 은 sync 대상이 아니다 —
 고치고 바로 push 하면 된다.
 
@@ -74,6 +95,8 @@
   제목에는 `break-inside: avoid` 도 같이 건다.
 - 포트폴리오 인쇄에서는 캡처를 줄인다(`.row.phone img { width: 96px }`). 화면 크기
   그대로 두면 이미지 한 장이 본문 대여섯 줄을 밀어낸다.
+- `.dl`(PDF 내려받기 링크)을 인쇄에서 숨길 때 `.dl { display: none }` 만으로는 안 된다.
+  `.reach a` 가 `display: block` 이라 특이도에서 진다 — `.reach a.dl` 로 쓸 것.
 
 ## 인쇄 확인
 
