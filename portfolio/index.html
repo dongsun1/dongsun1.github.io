@@ -16,8 +16,8 @@
   :root {
     --paper:  #FFFFFF;
     --ink:    #0E0E10;
-    --ink-2:  #44474C;
-    --ink-3:  #8B8F96;
+    --ink-2:  #3A3D42;
+    --ink-3:  #63676E;
     --rule:   #DBDDE0;
     --hair:   #EDEEF0;
     --mark:   #1B4D3E;
@@ -28,13 +28,13 @@
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #0B0B0C; --ink: #EDEEF0; --ink-2: #A5A9AF;
-      --ink-3: #73777D; --rule: #2B2D31; --hair: #1A1C1F; --mark: #7FD4BC;
+      --paper: #0B0B0C; --ink: #EDEEF0; --ink-2: #B6BAC0;
+      --ink-3: #989CA2; --rule: #2B2D31; --hair: #1A1C1F; --mark: #7FD4BC;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #0B0B0C; --ink: #EDEEF0; --ink-2: #A5A9AF;
-    --ink-3: #73777D; --rule: #2B2D31; --hair: #1A1C1F; --mark: #7FD4BC;
+    --paper: #0B0B0C; --ink: #EDEEF0; --ink-2: #B6BAC0;
+    --ink-3: #989CA2; --rule: #2B2D31; --hair: #1A1C1F; --mark: #7FD4BC;
   }
 
   * { box-sizing: border-box; }
@@ -47,7 +47,7 @@
     color: var(--ink);
     font-family: var(--kr);
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     word-break: keep-all;
@@ -71,7 +71,7 @@
     letter-spacing: -0.05em; margin: 0;
   }
   .who { font-size: 16px; font-weight: 500; line-height: 1.55; }
-  .who span { display: block; font-weight: 300; color: var(--ink-2); font-size: 14px; margin-top: 3px; }
+  .who span { display: block; font-weight: 400; color: var(--ink-2); font-size: 14px; margin-top: 3px; }
   .reach { font-size: 13px; color: var(--ink-3); line-height: 1.8; margin-top: 10px; }
   .reach a { border-bottom-color: var(--hair); display: block; width: fit-content; }
 
@@ -86,7 +86,7 @@
   }
   .tag em {
     display: block; font-family: var(--kr); font-style: normal;
-    font-size: 12.5px; font-weight: 300; color: var(--ink-3);
+    font-size: 12.5px; font-weight: 400; color: var(--ink-3);
     letter-spacing: 0; margin-top: 3px;
   }
   .yr {
@@ -108,7 +108,7 @@
   p:last-child { margin-bottom: 0; }
 
   .co { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin: 0; }
-  .co em { font-style: normal; font-size: 14px; font-weight: 300; color: var(--ink-2); letter-spacing: 0; }
+  .co em { font-style: normal; font-size: 14px; font-weight: 400; color: var(--ink-2); letter-spacing: 0; }
 
   .unit { margin-top: 30px; }
   .unit h3 { font-size: 17px; font-weight: 700; margin: 0; letter-spacing: -0.018em; }
